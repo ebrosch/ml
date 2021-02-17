@@ -24,7 +24,7 @@ jobs:
     steps:
       
       env:
-        NAME: ${secrets.SECRET_NAME}
+        NAME: ${{secrets.SECRET_NAME}}
         
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
