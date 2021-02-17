@@ -32,10 +32,6 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        with: # Set the secret as an input
-          super_secret: ${{ secrets.SECRET_NAME }}
-        env: # Or as an environment variable
-          super_secret: ${{ secrets.SECRET_NAME }}
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
