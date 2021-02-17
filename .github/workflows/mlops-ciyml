@@ -22,8 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      env:
-        MY_NAME: ${{ secrets.SECRET_NAME }}
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -34,7 +32,11 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
+        with: # Set the secret as an input
+          super_secret: ${{ secrets.SECRET_NAME }}
+        env: # Or as an environment variable
+          super_secret: ${{ secrets.SECRET_NAME }}
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo "My secret name is ${MY_NAME}"
+          echo "My secret name is ${super_secret}"
