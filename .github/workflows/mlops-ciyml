@@ -31,7 +31,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - run: |
-          az webapp list --query "[?state=='Running']"
+          az account show
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
