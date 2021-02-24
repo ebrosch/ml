@@ -50,6 +50,7 @@ jobs:
       - name: "Deploy to dev environment"
         run: |
           echo "This is where the script to deploy to the dev enironment goes"
+          echo "Deploy model ${{ steps.best_model_selection.outputs.model_uri }}"
 
       - name: "Smoke tests"
         run: |
