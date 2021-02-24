@@ -38,8 +38,13 @@ jobs:
           az account show
           
       - name: "Model training command"
-        run: |
-          echo "This is where the training script would go"
+        id: model_train
+        uses: ebrosch/train-model-mlflow-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      
+      - run: echo random-number ${{ steps.model_train.outputs.random-number }}
+        shell: bash
           
       - name: "Command to select best model from latest experiment"
         id: best_model_selection
