@@ -27,22 +27,32 @@ jobs:
       - name: "Check out repository code"
         uses: actions/checkout@v2
       
-      - uses: azure/login@v1
+      - name: "Authenticate to Azure"
+        uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - run: |
+      - name: "Test that authentication was successful"
+        run: |
           az account show
+          
+      - name: "Run model training script"
+        run: |
+          echo "This is where the training script would go"
+          
+      - name: "Select best model from training run"
+        run: |
+          echo "This is where the script to select/tag the best model goes"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        env:
-          NAME: ${{ secrets.SECRET_NAME }}
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          echo "My secret name is $NAME"
+      #- name: Run a multi-line script
+       # env:
+        #  NAME: ${{ secrets.SECRET_NAME }}
+        # run: |
+        #  echo Add other actions to build,
+        #  echo test, and deploy your project.
+        #  echo "My secret name is $NAME"
