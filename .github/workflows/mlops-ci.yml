@@ -36,17 +36,21 @@ jobs:
         run: |
           az account show
           
-      - name: "Run model training script"
+      - name: "Model training command"
         run: |
           echo "This is where the training script would go"
           
-      - name: "Select best model from training run"
+      - name: "Command to select best model from latest experiment"
         run: |
           echo "This is where the script to select/tag the best model goes"
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: "Deploy to dev environment"
+        run: |
+          echo "This is where the script to deploy to the dev enironment goes"
+
+      - name: "Smoke tests"
+        run: |
+          echo "This is where the script run spoke tests against the deployed model goes"
 
       # Runs a set of commands using the runners shell
       #- name: Run a multi-line script
@@ -57,7 +61,7 @@ jobs:
         #  echo test, and deploy your project.
         #  echo "My secret name is $NAME"
 
-# This workflow contains a single job called "build"
+# This workflow contains a single job called "scan"
   test:
     needs: build
     # The type of runner that the job will run on
@@ -69,3 +73,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: "Check out repository code"
         uses: actions/checkout@v2
+
+      - name: "Code quality (sonarqube)"
+        run: |
+          echo "This will eventually be replaced by a custom action to run a Sonarqube scan"
+
+      - name: "Artifact/container (Nexus IQ)"
+        run: |
+          echo "Double-check what this will do"
+
+      - name: "Container vulnerability (Trivy)"
+        run: |
+          echo "This will eventually be replaced by a custom action to run a Trivy scan"
