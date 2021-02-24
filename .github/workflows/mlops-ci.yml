@@ -39,7 +39,7 @@ jobs:
           
       - name: "Model training command"
         id: model_train
-        uses: ebrosch/train-model-mlflow-action
+        uses: ebrosch/train-model-mlflow-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
       
