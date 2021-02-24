@@ -62,7 +62,7 @@ jobs:
         #  echo "My secret name is $NAME"
 
 # This workflow contains a single job called "scan"
-  test:
+  scan:
     needs: build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -85,3 +85,16 @@ jobs:
       - name: "Container vulnerability (Trivy)"
         run: |
           echo "This will eventually be replaced by a custom action to run a Trivy scan"
+
+  publish:
+    needs: [build, scan]
+
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'ref/head/master'
+
+    steps:
+
+      - name: "Push container to ACR"
+        run: |
+          echo "Push container to ACR"
