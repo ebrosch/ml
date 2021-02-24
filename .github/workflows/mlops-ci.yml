@@ -20,7 +20,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     outputs: 
-      best_model_uri ${{ steps.best_model_selection.outputs.model_uri }}
+      best_model_uri: ${{ steps.best_model_selection.outputs.model_uri }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     
