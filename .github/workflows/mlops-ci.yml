@@ -42,7 +42,7 @@ jobs:
         uses: ebrosch/train-model-mlflow-action@v2
         with:
           backend: 'databricks'
-          backend-config: 'databricks.backend.json'
+          backend-config: './databricks.backend.json'
       
       - run: echo random-number ${{ steps.model_train.outputs.random-number }}
         shell: bash
