@@ -39,9 +39,10 @@ jobs:
           
       - name: "Model training command"
         id: model_train
-        uses: ebrosch/train-model-mlflow-action@v1
+        uses: ebrosch/train-model-mlflow-action@v2
         with:
-          who-to-greet: 'Mona the Octocat'
+          backend: 'databricks'
+          backend-config: 'databricks.backend.json'
       
       - run: echo random-number ${{ steps.model_train.outputs.random-number }}
         shell: bash
