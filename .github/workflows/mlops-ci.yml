@@ -39,7 +39,7 @@ jobs:
           
       - name: "Model training command"
         id: model_train
-        uses: ebrosch/train-model-mlflow-action@v2.1
+        uses: ebrosch/train-model-mlflow-action@v2.2
         with:
           backend: 'databricks'
           backend-config: './databricks.backend.json'
